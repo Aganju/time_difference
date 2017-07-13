@@ -20,4 +20,36 @@ def my_min_2(array)
     min = el if el < min
   end
   min
-end 
+end
+
+def largest_contiguous_subsum(array)
+
+  sub_arr = []
+
+  (0...array.size).each do |i|
+    (i...array.size).each do|j|
+      sub_arr<< array[i..j]
+    end
+  end
+
+  sub_arr.map! do |subs|
+    subs.inject(&:+)
+  end
+
+  sub_arr.max
+
+end
+
+def largest_contiguous_subsum2(array)
+
+  max = array.first
+  current_max = 0
+
+  array.each do |el|
+    current_max += el
+    max = current_max if current_max > max
+    current_max = 0 if current_max < 0
+  end
+
+  max
+end

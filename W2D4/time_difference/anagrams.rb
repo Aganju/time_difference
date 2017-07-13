@@ -22,7 +22,7 @@ end
 
 def third_anagram?(original, poss_perm)
   return false if original.length != poss_perm.length
-  original.chars.sort.join == poss_perm.chars.sort.join
+  original.sort == poss_perm.sort
 end
 
 def fourth_anagram?(original, poss_perm)
